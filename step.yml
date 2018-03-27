@@ -1,0 +1,59 @@
+title: |-
+  App Center Launch Test Android
+summary: |
+  Run App Center launch test for android
+description: |
+  Verify that your build works on a real device by running a launch test on a real device
+website: https://github.com/tomcurran/bitrise-step-app-center-launch-test-android
+source_code_url: https://github.com/tomcurran/bitrise-step-app-center-launch-test-android
+support_url: https://github.com/tomcurran/bitrise-step-app-center-launch-test-android/issues
+host_os_tags:
+  - osx-10.10
+  - ubuntu-16.04
+project_type_tags:
+  - ios
+  - macos
+  - android
+  - xamarin
+  - react-native
+  - cordova
+  - ionic
+type_tags:
+  - test
+is_requires_admin_user: true
+is_always_run: false
+is_skippable: false
+run_if: ""
+deps:
+  brew:
+  - name: npm
+  apt_get:
+  - name: npm
+toolkit:
+  bash:
+    entry_file: step.sh
+inputs:
+  - app_path: "$BITRISE_SIGNED_APK_PATH"
+    opts:
+      title: "App path"
+      summary: ""
+      description: |
+        App file path, for example to an APK file for Android.
+      is_expand: true
+      is_required: true
+  - app_center_app: "$MOBILE_CENTER_ANDROID_APP"
+    opts:
+      title: "App Center app"
+      summary: username/app_name or org/app_name
+      description: |
+        Get all available apps using cli "appcenter apps list".
+      is_expand: true
+      is_required: true
+  - app_center_token: "$APP_CENTER_TOKEN"
+    opts:
+      title: "App Center API token"
+      summary: "App Ceneter APK token with access to app specified in app_center_app"
+      description: |
+        Create API token using cli "appcenter tokens create".
+      is_expand: true
+      is_required: true
