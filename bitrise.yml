@@ -3,17 +3,6 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: xamarin
 app:
   envs:
-
-
-
-
-
-
-
-
-
-
-
   - APP_CENTER_APP: $MOBILE_CENTER_ANDROID_APP
   - APP_CENTER_TOKEN: $APP_CENTER_TOKEN
   - BITRISE_STEP_ID: app-center-launch-test-android
