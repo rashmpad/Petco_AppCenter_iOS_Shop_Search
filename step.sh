@@ -26,9 +26,9 @@ fi
 # ---------------------
 # --- Configs:
 
-echo " (i) Provided app path: ${BITRISE_SIGNED_APK_PATH}"
-echo " (i) Provided app center app: ${MOBILE_CENTER_ANDROID_APP}"
-echo " (i) Provided app center token: 4cf23d2f1d9c268284ace5a1cc8bd374f4271b64"
+echo " (i) Provided app path: ${app_path}"
+echo " (i) Provided app center app: ${app_center_app}"
+echo " (i) Provided app center token: app_center_token"
 echo
 
 # ---------------------
@@ -47,7 +47,16 @@ nuget restore -NonInteractive "${SOLUTION}"
 msbuild "${SOLUTION}" /p:Configuration=Release
 
 appcenter test prepare uitest --artifacts-dir "${ARTIFACTS_DIR}" --app-path "${app_path}" --build-dir "${BUILD_DIR}" --debug --quiet
+
+
 appcenter test run manifest --manifest-path "${MANIFEST_PATH}" --app-path "${app_path}" --app "${app_center_app}" --devices 6f2c8184 --fixture Petco.UITests.Cart\(Android\).VerifyCartFlowSecureCheckOutForgotPasswordwithOutRepeatDelivery --test-series launch-tests --locale en_US --debug --quiet --token "${app_center_token}"
+
+
+
+
+
+
+
 
 
 
