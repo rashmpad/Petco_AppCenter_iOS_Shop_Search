@@ -3,11 +3,11 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: xamarin
 app:
   envs:
-  - APP_CENTER_APP: $MOBILE_CENTER_ANDROID_APP
-  - APP_CENTER_TOKEN: $APP_CENTER_TOKEN
+  - APP_CENTER_APP: $APP_CENTER_APP
+  - APP_CENTER_TOKEN: "4cf23d2f1d9c268284ace5a1cc8bd374f4271b64"
   - BITRISE_STEP_ID: app-center-launch-test-android
   - BITRISE_STEP_VERSION: "1.0.0"
-  - BITRISE_STEP_GIT_CLONE_URL: https://github.com/tomcurran/bitrise-step-app-center-launch-test-android
+  - BITRISE_STEP_GIT_CLONE_URL: https://github.com/rashmpad/app-center-launch-test-android
   - MY_STEPLIB_REPO_FORK_GIT_URL: $MY_STEPLIB_REPO_FORK_GIT_URL
 
 workflows:
@@ -18,7 +18,7 @@ workflows:
         - content: |
             #!/bin/bash
             echo "Just an example 'secrets' print."
-            echo "The value of 'APP_CENTER_APP' is: $MOBILE_CENTER_ANDROID_APP"
+            echo "The value of 'APP_CENTER_APP' is: $APP_CENTER_APP"
             echo "The value of 'APP_CENTER_TOKEN' is: $APP_CENTER_TOKEN"
     - change-workdir:
         title: Switch working dir to test / _tmp dir
@@ -36,7 +36,7 @@ workflows:
         run_if: true
         inputs:
         - app_path: com.petco.mobile.qa-bitrise-signed.apk
-        - app_center_app: $MOBILE_CENTER_ANDROID_APP
+        - app_center_app: $APP_CENTER_APP
         - app_center_token: $APP_CENTER_TOKEN
 
 
