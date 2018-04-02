@@ -49,18 +49,7 @@ msbuild "${SOLUTION}" /p:Configuration=Release
 appcenter test prepare uitest --artifacts-dir "${ARTIFACTS_DIR}" --app-path "${app_path}" --build-dir "${BUILD_DIR}" --debug --quiet
 
 
-appcenter test run manifest --manifest-path "${MANIFEST_PATH}" --app-path "${app_path}" --app "${app_center_app}" --devices 6f2c8184 --fixture Petco.UITests.Cart\(Android\).VerifyCartFlowSecureCheckOutForgotPasswordwithOutRepeatDelivery --test-series launch-tests --locale en_US --debug --quiet --token "${app_center_token}"
-
-
-
-
-
-
-
-
-
-
-
+appcenter test run uitest manifest --manifest-path "${MANIFEST_PATH}" --app-path "${app_path}" --app "${app_center_app}" --devices 6f2c8184 --fixture Petco.UITests.Cart\(Android\).VerifyCartFlowSecureCheckOutForgotPasswordwithOutRepeatDelivery --test-series launch-tests --locale en_US --debug --quiet --token "${app_center_token}"
 
 #
 # --- Exit codes:
