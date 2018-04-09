@@ -34,22 +34,22 @@ echo
 # ---------------------
 # --- Main
 
-LAUNCH_TEST_DIR="${BITRISE_SOURCE_DIR}/app-center-launch-test-android"
-OUTPUT_PATH="${LAUNCH_TEST_DIR}/GeneratedTest"
-ARTIFACTS_DIR="${LAUNCH_TEST_DIR}/Artifacts"
-SOLUTION="${OUTPUT_PATH}/AppCenter.UITest.Android.sln"
-BUILD_DIR="${OUTPUT_PATH}/AppCenter.UITest.Android/bin/Release"
+ARTIFACTS_DIR="Artifacts"
+BUILD_DIR="Petco.UITests/bin/Release"
 MANIFEST_PATH="${ARTIFACTS_DIR}/manifest.json"
 
-npm install appcenter-cli@1.0.8 -g
-appcenter test generate uitest --platform android --output-path "${OUTPUT_PATH}"
-nuget restore -NonInteractive "${SOLUTION}"
-msbuild "${SOLUTION}" /p:Configuration=Release
 
-appcenter test prepare uitest --artifacts-dir "${ARTIFACTS_DIR}" --app-path "${app_path}" --build-dir "${BUILD_DIR}" --debug --quiet
-appcenter test run uitest --app "${app_center_app}" --devices "rashmi.padhi-01/apple-iphone-7-plus" --app-path "${app_path}" --async --fixture Petco.UITests.Cart\(iOS\).VerifyCartFlowSecureCheckOutForgotPasswordwithOutRepeatDelivery --test-series "master" --locale "en_US" --token "${app_center_token}" --build-dir "/Users/rashmi.padhi/Documents/Srini_AutomationBranch/Petco.UITests/bin/Debug"
-#
-# --- Exit codes:
-# The exit code of your Step is very important. If you return
-#  with a 0 exit code `bitrise` will register your Step as "successful".
-# Any non zero exit code will be registered as "failed" by `bitrise`.
+#SOLUTION="Petco.UITests.sln"
+npm install appcenter-cli@1.0.8 -g
+#nuget restore -NonInteractive "${SOLUTION}"
+msbuild "Petco.UITests/Petco.UITests.csproj" /p:Configuration=Release
+#appcenter test run uitest --app "${app_center_app}" --devices 6f2c8184 --app-path "${app_path}" --async --fixture Petco.UITests.Cart\(Android\).VerifyCartFlowSecureCheckOutForgotPasswordwithOutRepeatDelivery --test-series "master" --locale "en_US" --token "${app_center_token}" --build-dir "Petco.UITests/bin/Release"
+
+#npm install appcenter-cli@1.0.8 -g
+#appcenter test generate uitest --platform android --output-path "${OUTPUT_PATH}"
+#nuget restore -NonInteractive "${SOLUTION}"
+#msbuild "${SOLUTION}" /p:Configuration=Release
+appcenter test prepare uitest --artifacts-dir "${ARTIFACTS_DIR}" --app-path "${app_path}" --build-dir "${BUILD_DIR}" --fixture "Petco.UITests.AM_ProfileLanding(iOS).VerifyProfileLanding" --fixture "Petco.UITests.Cart(iOS).VerifyCartFlowSecureCheckOutForgotPasswordwithOutRepeatDelivery" --debug --quiet
+appcenter test run manifest --manifest-path "${MANIFEST_PATH}" --app "${app_center_app}" --devices "rashmi.padhi-01/apple-iphone-7-plus" --test-series "master" --locale "en_US" --debug --quiet --token "${app_center_token}"
+
+
