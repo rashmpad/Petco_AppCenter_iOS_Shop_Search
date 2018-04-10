@@ -56,6 +56,7 @@ appcenter test prepare uitest --artifacts-dir "${ARTIFACTS_DIR}" --app-path "${a
 echo "${MANIFEST_PATH}"
 echo "${app_center_app}"
 echo "${app_center_token}"
-appcenter test run manifest --manifest-path "${MANIFEST_PATH}" --app "${app_center_app}" --devices "rashmi.padhi-01/apple-iphone-7-plus" --test-series "master" --locale "en_US" --debug --quiet --token "${app_center_token}"
+appcenter test run manifest --manifest-path "${MANIFEST_PATH}" --app "${app_center_app}" --devices rashmi.padhi-01/apple-iphone-7-plus --test-series "master" --locale "en_US" --debug --quiet --token "${app_center_token}"
+
 
 
