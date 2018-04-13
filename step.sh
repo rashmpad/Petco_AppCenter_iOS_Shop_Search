@@ -56,10 +56,6 @@ echo "${MANIFEST_PATH}"
 echo "${app_center_app}"
 echo "${app_center_token}"
 appcenter test prepare uitest --artifacts-dir "${ARTIFACTS_DIR}" --app-path "${app_path}" --build-dir "${BUILD_DIR}" --fixture "Petco.UITests.SmokeTest(iOS)" --fixture "Petco.UITests.Cart(iOS)" --fixture "Petco.UITests.Checkout(iOS)" --fixture "Petco.UITests.Onboarding_CreateAccount(iOS)" --fixture "Petco.UITests.Onboarding_IntroScreen(iOS)" --fixture "Petco.UITests.Onboarding_Login(iOS)" --fixture "Petco.UITests.RepeatDelivery(iOS)" --fixture "Petco.UITests.Shop_ProductDetail(iOS)" --fixture "Petco.UITests.Shop_ProductListing(iOS)" --fixture "Petco.UITests.Shop_Search(iOS)" --fixture "Petco.UITests.Shop_ShopLanding(iOS)" --fixture "Petco.UITests.TheStoreLocator(iOS)" --debug --quiet
-
-
-
-
 appcenter test run manifest --manifest-path "${MANIFEST_PATH}" --app "${app_center_app}" --app-path "${app_path}" --devices c331e6ae --test-series "master" --locale "en_US" --debug --quiet --token "${app_center_token}"
 
 
