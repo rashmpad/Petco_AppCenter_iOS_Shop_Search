@@ -7,7 +7,7 @@ app:
   - APP_CENTER_TOKEN: "93424d4f2ed8ba4ba8492a7c7299366eee09a2a9"
   - BITRISE_STEP_ID: Petco_AppCenter_iOS
   - BITRISE_STEP_VERSION: "1.0.0"
-  - BITRISE_STEP_GIT_CLONE_URL: https://github.com/rashmpad/Petco_AppCenter_iOS_Smoke_StoreLocator
+  - BITRISE_STEP_GIT_CLONE_URL: https://github.com/rashmpad/Petco_AppCenter_iOS_Shop_Search
   - MY_STEPLIB_REPO_FORK_GIT_URL: $MY_STEPLIB_REPO_FORK_GIT_URL
 
 workflows:
